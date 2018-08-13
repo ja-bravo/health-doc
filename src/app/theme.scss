@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+$palette: $mat-teal;
+$paletteAccent: $mat-amber;
+
+$primary: mat-color(mat-palette($palette));
+$accent: mat-color(mat-palette($paletteAccent));
+
+$orange: #FFA400;
+$darkBlue: #416788;
+$darkGrey: #383b40;
+$midGrey: #3d4045;
+$lightGrey: #43474d;
+$green: #23ae89;
+$white: #FDFFFC;
+$red: #EF3E36; 

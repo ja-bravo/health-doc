@@ -1,0 +1,66 @@
+@import './theme';
+
+main, .menuContainer {
+    height: 100%,
+}
+
+.menu {
+    background: $midGrey;
+    color: white;
+
+    .header {
+        height: 64px;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $darkGrey;
+        color: white;
+        padding: 0 16px;
+        margin-bottom: 1px;
+
+        i {
+            margin-right: 15px;
+            font-size: 35px;
+        }
+
+        .header-title {
+            font-size: 25px;
+            color: $primary;
+
+        }
+    }
+
+    .actions {
+        .action {
+            transition: all 0.4s ease 0s;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            height: 40px;
+            font-size: 16px;
+            line-height: 40px;
+            border-left: 3px solid transparent;
+            outline: transparent;
+
+            &.active, &:hover {
+                font-weight: bold;
+                background: $darkGrey;
+            }
+
+            &:hover {
+                border-left: 3px solid transparentize($accent, 0.5);
+            }
+
+            &.active {
+                border-left: 3px solid $accent;
+            }
+        }
+    }
+}
+
+.topBar {
+    background: white;
+}
