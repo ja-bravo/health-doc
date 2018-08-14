@@ -1,5 +1,9 @@
 @import './theme';
 
+main {
+    border-top: 2px solid $accent;
+}
+
 main, .menuContainer {
     height: 100%,
 }
@@ -62,5 +66,7 @@ main, .menuContainer {
 }
 
 .topBar {
-    background: white;
+    background: $darkGrey;
+    color: white;
+    border-left: 2px solid $accent;
 }

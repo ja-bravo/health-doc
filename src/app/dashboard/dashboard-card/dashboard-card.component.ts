@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-card',
@@ -11,10 +12,11 @@ export class DashboardCardComponent implements OnInit {
   @Input() subtitle;
   @Input() icon;
   @Input() color;
+  @Input() route;
 
   public raised = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +29,11 @@ export class DashboardCardComponent implements OnInit {
   @HostListener('mouseleave')
   onMouseLeave() {
     this.raised = false;
+  }
+
+  @HostListener('click')
+  onClick() {
+    this.router.navigateByUrl(this.route);
   }
 
 }
