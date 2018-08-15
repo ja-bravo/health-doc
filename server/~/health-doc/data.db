@@ -1,7 +1,15 @@
-{"id":1,"name":"Project 1","createdAt":"","type":"project","_id":"THqA7DAcSGzy2CSw","updatedAt":{"$$date":1534260799450}}
-{"id":1,"name":"Project 1","createdAt":"","type":"project","_id":"TVqtwdJrjJiBgY0D","updatedAt":{"$$date":1534260802326}}
-{"id":1,"name":"Project 1","createdAt":"","type":"project","_id":"cb134qZVGkfbBWVn","updatedAt":{"$$date":1534260801843}}
-{"id":1,"name":"Project 1","createdAt":"","type":"project","_id":"mkuR2uqTn6xkswvG","updatedAt":{"$$date":1534260800690}}
-{"id":1,"name":"Project 1","createdAt":"","type":"project","_id":"qOJ1liwx5t4fqAUe","updatedAt":{"$$date":1534260801180}}
-{"id":1,"name":"Project 1","type":"project","_id":"jsujVG9fR5h9xBXm","createdAt":{"$$date":1534260834017},"updatedAt":{"$$date":1534260834017}}
-{"id":1,"name":"Project 1","type":"project","_id":"rKbmTnLxJoHCWkv6","createdAt":{"$$date":1534260834751},"updatedAt":{"$$date":1534260834751}}
+{"name":"111","type":"project","_id":"1z85xqnzQuchSbpt","createdAt":{"$$date":1534340306797},"updatedAt":{"$$date":1534340306797}}
+{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534340302503}}
+{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534342909826},"active":true}
+{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534342912786},"active":false}
+{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534342926319},"active":true}
+{"name":"111","type":"project","_id":"1z85xqnzQuchSbpt","createdAt":{"$$date":1534340306797},"updatedAt":{"$$date":1534342933379},"active":true}
+{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534343022798},"active":false}
+{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534343023452},"active":true}
+{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534343024914},"active":false}
+{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534343026551},"active":true}
+{"$$deleted":true,"_id":"dmr1gAQZ5XJIvLS0"}
+{"name":"dasdasdasdadadas","type":"project","_id":"xeqt0LnqxFjD1RdR","createdAt":{"$$date":1534343083770},"updatedAt":{"$$date":1534343083770}}
+{"name":"dasdasdasdadadas","type":"project","_id":"xeqt0LnqxFjD1RdR","createdAt":{"$$date":1534343083770},"updatedAt":{"$$date":1534343094471},"active":true}
+{"name":"dasdasdasdadadas","type":"project","_id":"xeqt0LnqxFjD1RdR","createdAt":{"$$date":1534343083770},"updatedAt":{"$$date":1534343094980},"active":false}
+{"$$deleted":true,"_id":"xeqt0LnqxFjD1RdR"}

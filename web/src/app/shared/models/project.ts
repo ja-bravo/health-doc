@@ -1,9 +1,15 @@
 import * as moment from 'moment';
 
 export interface Project {
-    id: number;
+    _id: string;
     name: string;
     checks: number;
     active: boolean;
     createdAt: moment.Moment;
 }
+
+export enum Status  {
+    ACTIVE = 'active',
+    INACTIVE = 'inactive',
+}
+

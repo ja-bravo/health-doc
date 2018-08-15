@@ -21,11 +21,29 @@ class Database {
     });
   }
 
-  insert(data, type) {
+  insert<T>(data, type): Promise<T> {
     return new Promise((fulfill, reject) => {
       this.store.insert({ ...data, type }, (err, doc) => {
         if (err) return reject(err);
         return fulfill(doc);
+      });
+    });
+  }
+
+  delete(id, type): Promise<number> {
+    return new Promise((fulfill, reject) => {
+      this.store.remove({_id: id, type}, (e,n) => {
+        if (e) return reject(e);
+        return fulfill(n);
+      })
+    });
+  }
+
+  update(data, type): Promise<any> {
+    return new Promise((fulfill, reject) => {
+      this.store.update({_id: data._id, type}, {$set: data}, {}, (e, n, upsert) => {
+        if (e) return reject(e);
+        return fulfill(n);
       });
     });
   }

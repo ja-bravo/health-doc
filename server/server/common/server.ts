@@ -5,7 +5,7 @@ import * as bodyParser from 'body-parser';
 import * as http from 'http';
 import * as os from 'os';
 import * as cookieParser from 'cookie-parser';
-import swaggerify from './swagger';
+import * as cors from 'cors';
 import l from './logger';
 
 const app = express();
@@ -17,11 +17,11 @@ export default class ExpressServer {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(cookieParser(process.env.SESSION_SECRET));
-    app.use(express.static(`${root}/public`));
+    app.use(cors());
   }
 
   router(routes: (app: Application) => void): ExpressServer {
-    swaggerify(app, routes)
+    routes(app);
     return this;
   }
 
