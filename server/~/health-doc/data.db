@@ -1,15 +1,5 @@
-{"name":"111","type":"project","_id":"1z85xqnzQuchSbpt","createdAt":{"$$date":1534340306797},"updatedAt":{"$$date":1534340306797}}
-{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534340302503}}
-{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534342909826},"active":true}
-{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534342912786},"active":false}
-{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534342926319},"active":true}
-{"name":"111","type":"project","_id":"1z85xqnzQuchSbpt","createdAt":{"$$date":1534340306797},"updatedAt":{"$$date":1534342933379},"active":true}
-{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534343022798},"active":false}
-{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534343023452},"active":true}
-{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534343024914},"active":false}
-{"name":"asdasdasd","type":"project","_id":"dmr1gAQZ5XJIvLS0","createdAt":{"$$date":1534340302503},"updatedAt":{"$$date":1534343026551},"active":true}
-{"$$deleted":true,"_id":"dmr1gAQZ5XJIvLS0"}
-{"name":"dasdasdasdadadas","type":"project","_id":"xeqt0LnqxFjD1RdR","createdAt":{"$$date":1534343083770},"updatedAt":{"$$date":1534343083770}}
-{"name":"dasdasdasdadadas","type":"project","_id":"xeqt0LnqxFjD1RdR","createdAt":{"$$date":1534343083770},"updatedAt":{"$$date":1534343094471},"active":true}
-{"name":"dasdasdasdadadas","type":"project","_id":"xeqt0LnqxFjD1RdR","createdAt":{"$$date":1534343083770},"updatedAt":{"$$date":1534343094980},"active":false}
-{"$$deleted":true,"_id":"xeqt0LnqxFjD1RdR"}
+{"projectId":"ZP6MITdO6ban8o5J","active":true,"name":"First check","type":"check","endpoint":"https://pocketfriendlytowns.com/westend/v4/settings/info","_id":"Bsm8r3Z4dBM35KZx","createdAt":{"$$date":1534432371956},"updatedAt":{"$$date":1534432371956}}
+{"projectId":"ZP6MITdO6ban8o5J","active":true,"name":"First check","type":"check","endpoint":"https://pocketfriendlytowns.com/westend/v4/settings/info","_id":"T7Co8TFJY3pQR3ms","createdAt":{"$$date":1534432373272},"updatedAt":{"$$date":1534432373272}}
+{"name":"etetetet","type":"project","_id":"ZP6MITdO6ban8o5J","createdAt":{"$$date":1534425839662},"updatedAt":{"$$date":1534426871109},"active":true}
+{"projectId":"ZP6MITdO6ban8o5J","active":true,"name":"First check","type":"check","endpoint":"https://pocketfriendlytowns.com/westend/v4/settings/info","_id":"rzt7tMueUdaqrAIX","createdAt":{"$$date":1534432369933},"updatedAt":{"$$date":1534432369933}}
+{"projectId":"ZP6MITdO6ban8o5J","active":true,"name":"First check","type":"check","endpoint":"https://pocketfriendlytowns.com/westend/v4/settings/info","_id":"aIvhoZhm9jsHeidd","createdAt":{"$$date":1534433306651},"updatedAt":{"$$date":1534433306651}}

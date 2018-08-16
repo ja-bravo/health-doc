@@ -22,7 +22,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   constructor(private projectsService: ProjectsService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
-    this.subscription = this.projectsService.getProjects().subscribe(p => this.dataSource.data = p);
+    this.subscription = this.projectsService.getProjectsObservable().subscribe(p => this.dataSource.data = p);
     this.dataSource.paginator = this.paginator;
   }
 
@@ -37,22 +37,21 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
   public pauseProject(project: Project, e) {
     e.stopPropagation();
-    this.projectsService.changeStatus(project, Status.INACTIVE).subscribe(p => project.active = false);
+    this.projectsService.changeStatus(project, Status.INACTIVE);
   }
 
   public resumeProject(project: Project, e: Event) {
     e.stopPropagation();
-    this.projectsService.changeStatus(project, Status.ACTIVE).subscribe(p => project.active = true);
+    this.projectsService.changeStatus(project, Status.ACTIVE);
   }
 
-  public deleteProject(project: Project, e: Event) {
+  public async deleteProject(project: Project, e: Event) {
     e.stopPropagation();
     if (confirm('Are you sure? This will permanently delete this project')) {
-      this.projectsService.deleteProject(project).subscribe(amount => {
-        if (amount === 1) {
-          this.dataSource.data = this.dataSource.data.filter(p => p._id !== project._id);
-        }
-      });
+      const amount = await this.projectsService.deleteProject(project);
+      if (amount === 1) {
+        this.dataSource.data = this.dataSource.data.filter(p => p._id !== project._id);
+      }
     }
   }
 
@@ -62,12 +61,11 @@ export class ProjectsComponent implements OnInit, OnDestroy {
       data: ''
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(async result => {
       if (result) {
-        this.projectsService.createProject({name: result}).subscribe(project => {
-          this.projectsService.setProject(project);
-          this.router.navigateByUrl('/projects/details');
-        });
+        const project = await this.projectsService.createProject({ name: result });
+        this.projectsService.setProject(project);
+        this.router.navigateByUrl('/projects/details');
       }
     });
   }
@@ -84,7 +82,7 @@ export class DialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data) {}
+    @Inject(MAT_DIALOG_DATA) public data) { }
 
   onNoClick(): void {
     this.dialogRef.close();

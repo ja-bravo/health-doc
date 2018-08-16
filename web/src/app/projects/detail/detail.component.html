@@ -1,3 +1,63 @@
-<p>
-  detail works!
-</p>
+<mat-grid-list cols="1" id="wrapper" rowHeight="200">
+  <mat-grid-tile>
+    <app-detail-card [title]="'Actions'" [icon]="'fa-cogs'">
+
+      <div class="actions">
+        <button *ngIf="!project.active" mat-raised-button color="primary" (click)="resumeProject()">Start</button>
+        <button *ngIf="project.active" mat-raised-button color="accent" (click)="pauseProject()">Stop</button>
+        <button mat-raised-button color="warn" (click)="onDestroyClick()">Destroy</button>
+      </div>
+
+    </app-detail-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <app-detail-card [title]="'Project details'" [icon]="'fa-server'">
+      <table class="details">
+        <tr>
+          <td>ID</td>
+          <td>{{project?._id}}</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{project?.name}}</td>
+        </tr>
+        <tr>
+          <td>Created</td>
+          <td>{{project?.createdAt | date}}</td>
+        </tr>
+      </table>
+    </app-detail-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile id="checksWrapper">
+    <div class="content">
+      <app-detail-card [title]="'Checks'" [icon]="'fa-heartbeat'">
+        <table class="details checks" *ngIf="checks && checks.length > 0">
+          <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Endpoint</th>
+            <th>Status</th>
+            <th>Created</th>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let check of checks">
+              <td>{{check?._id}}</td>
+              <td>{{check?.name}}</td>
+              <td>{{check.endpoint}}</td>
+              <td>{{check.active}}</td>
+              <td>{{check?.createdAt | date}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </app-detail-card>
+
+      <div class="actions">
+        <button *ngIf="project.active" mat-raised-button color="primary" (click)="addCheck()">Add</button>
+      </div>
+    </div>
+
+  </mat-grid-tile>
+</mat-grid-list>

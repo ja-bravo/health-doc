@@ -7,6 +7,7 @@ import { MaterialModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DetailComponent } from './detail/detail.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { DetailComponent } from './detail/detail.component';
     HttpClientModule,
     FormsModule,
     MaterialModule,
+    SharedModule
   ],
   declarations: [ProjectsComponent, DialogComponent, DetailComponent],
   entryComponents: [DialogComponent]
