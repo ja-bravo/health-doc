@@ -1,4 +1,6 @@
-#wrapper {
+@import "../../theme.scss";
+
+.wrapper {
     width: 80%;
     margin: 10px auto;
 
@@ -44,11 +46,52 @@
        .content {
            flex-direction: column;
            width: 100%;
-
-           .actions {
-               padding: 0;
-               margin-top: 10px;
-           }
        }
+    }
+}
+
+:host /deep/ {
+
+    .mat-table {
+        width: 100%;
+    }
+
+    .mat-row {
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            background: rgb(233, 233, 233);
+        }
+
+        .mat-cell:last-child {
+            text-align: end;
+        }
+    }
+
+    .status {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background: $red;
+
+        &.active {
+            background: $primary;
+        }
+    }
+
+    .icon {
+        transition: all 0.2s ease-in-out;
+        
+        &.deleteIcon {
+            color: $red;
+        }
+
+        &.startIcon {
+            color: $accent;
+        }
+
+        &.pauseIcon {
+            color: $primary;
+        }
     }
 }

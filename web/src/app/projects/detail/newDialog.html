@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Add a check</h1>
+<div mat-dialog-content>
+  <mat-form-field [style.width]="'100%'">
+    <input placeholder="Name" matInput [(ngModel)]="data.name" />
+  </mat-form-field>
+  <mat-form-field [style.width]="'100%'">
+    <input placeholder="Endpoint" matInput [(ngModel)]="data.endpoint" />
+  </mat-form-field>
+  <mat-form-field [style.width]="'100%'">
+    <mat-select placeholder="Interval" [(value)]="data.checkType">
+      <mat-option value="{{checkTypes.DAILY}}">Daily</mat-option>
+      <mat-option value="{{checkTypes.EVERY_HOUR}}">Every hour</mat-option>
+      <mat-option value="{{checkTypes.EVERY_HALF_HOUR}}">Every half an hour</mat-option>
+      <mat-option value="{{checkTypes.EVERY_TEN_MINUTES}}">Every 10 minutes</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

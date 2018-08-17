@@ -6,7 +6,7 @@ import { ProjectsComponent, DialogComponent } from './page/projects.component';
 import { MaterialModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { DetailComponent } from './detail/detail.component';
+import { DetailComponent, NewCheckDialogComponent } from './detail/detail.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     MaterialModule,
     SharedModule
   ],
-  declarations: [ProjectsComponent, DialogComponent, DetailComponent],
-  entryComponents: [DialogComponent]
+  declarations: [ProjectsComponent, DialogComponent, DetailComponent, NewCheckDialogComponent],
+  entryComponents: [DialogComponent, NewCheckDialogComponent]
 })
 export class ProjectsModule { }

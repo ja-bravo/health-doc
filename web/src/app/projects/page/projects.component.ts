@@ -2,8 +2,7 @@ import { Component, OnInit, ViewChild, Inject, OnDestroy } from '@angular/core';
 import { ProjectsService } from '../../shared/services/projects.service';
 import { Project, Status } from '../../shared/models/project';
 import { MatPaginator, MatTableDataSource, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import * as moment from 'moment';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,9 +14,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   public columnsToDisplay = ['status', 'name', 'checks', 'createdAt', 'controls'];
   public subscription: Subscription;
   public dataSource = new MatTableDataSource<Project>();
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  public moment = moment;
 
   constructor(private projectsService: ProjectsService, private dialog: MatDialog, private router: Router) { }
 

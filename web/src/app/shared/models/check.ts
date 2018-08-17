@@ -6,7 +6,7 @@ export interface Check {
     name: string;
     endpoint: string;
     active: boolean;
-    type: Types;
+    checkType: Types;
     customData?: any;
     createdAt?: moment.Moment;
 }
