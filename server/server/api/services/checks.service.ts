@@ -1,8 +1,8 @@
 import L from '../../common/logger'
 import database from '../../common/database';
-import { Check } from '../../../../web/src/app/shared/models/Check';
+import { Check } from '../../../../web/src/app/shared/models/check';
 
-const type = 'check';
+export const type = 'check';
 export class ChecksService {
   all(): Promise<Check[]> {
     L.info('fetch all Checks');

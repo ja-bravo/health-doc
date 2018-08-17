@@ -1,5 +1,5 @@
-<mat-grid-list cols="1" class="wrapper" rowHeight="220">
-  <mat-grid-tile>
+<section class="wrapper">
+  <div class="row">
     <app-detail-card [title]="'Actions'" [icon]="'fa-cogs'">
 
       <div class="actions">
@@ -9,9 +9,9 @@
       </div>
 
     </app-detail-card>
-  </mat-grid-tile>
+  </div>
 
-  <mat-grid-tile>
+  <div class="row">
     <app-detail-card [title]="'Project details'" [icon]="'fa-server'">
       <table class="details">
         <tr>
@@ -28,8 +28,8 @@
         </tr>
       </table>
     </app-detail-card>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</section>
 
 <div id="checksWrapper" class="wrapper">
   <div class="content">

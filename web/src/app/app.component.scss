@@ -1,7 +1,12 @@
 @import './theme';
 
-main {
-    border-top: 2px solid $accent;
+.main-content {
+    overflow-y: hidden;
+
+    .router-outlet {
+        overflow-y: scroll;
+        height: calc(100% - 66px);
+    }
 }
 
 main, .menuContainer {

@@ -95,14 +95,14 @@ export class DetailComponent implements OnInit {
     switch (check.checkType) {
       case Types.DAILY:
         return 'Daily';
-      case Types.EVERY_HALF_HOUR:
-        return 'Every 30 minutes';
       case Types.EVERY_HOUR:
-        return 'Every hour';
+        return 'Hourly';
+      case Types.EVERY_HALF_HOUR:
+        return '30 minutes';
       case Types.EVERY_TEN_MINUTES:
-        return 'Every 10 minutes';
-      case Types.CUSTOM:
-        return 'Custom';
+        return '10 minutes';
+      case Types.EVERY_FIVE_MINUTES:
+        return '5 minutes';
     }
   }
 }
