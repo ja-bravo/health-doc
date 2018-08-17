@@ -1,0 +1,89 @@
+<mat-grid-list cols="1" class="wrapper" rowHeight="220">
+  <mat-grid-tile>
+    <app-detail-card [title]="'Actions'" [icon]="'fa-cogs'">
+
+      <div class="actions">
+        <button *ngIf="!project.active" mat-raised-button color="primary" (click)="resumeProject()">Start</button>
+        <button *ngIf="project.active" mat-raised-button color="accent" (click)="pauseProject()">Stop</button>
+        <button mat-raised-button color="warn" (click)="onDestroyClick()">Destroy</button>
+      </div>
+
+    </app-detail-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <app-detail-card [title]="'Project details'" [icon]="'fa-server'">
+      <table class="details">
+        <tr>
+          <td>ID</td>
+          <td>{{project?._id}}</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{project?.name}}</td>
+        </tr>
+        <tr>
+          <td>Created</td>
+          <td>{{project?.createdAt | date}}</td>
+        </tr>
+      </table>
+    </app-detail-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div id="checksWrapper" class="wrapper">
+  <div class="content">
+    <app-detail-card [title]="'Checks'" [icon]="'fa-heartbeat'">
+      <table mat-table #table [dataSource]="dataSource">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="endpoint">
+            <th mat-header-cell *matHeaderCellDef> Endpoint </th>
+            <td mat-cell *matCellDef="let element"> {{element.endpoint}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> <div class="status" [class.active]="element.active"></div></td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
+            <td mat-cell *matCellDef="let element"> {{getType(element)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef> Created </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdAt | date}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="controls">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> 
+                <mat-icon *ngIf="element.active" class="icon startIcon" matTooltip="Put on hold" (click)="pauseCheck(element, $event)">pause</mat-icon>
+                <mat-icon *ngIf="!element.active" class="icon pauseIcon" matTooltip="Resume" (click)="resumeCheck(element, $event)">play_arrow</mat-icon>
+                <mat-icon class="icon deleteIcon" matTooltip="Delete check" (click)="deleteCheck(element, $event)">delete_forever</mat-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </table>
+
+      <mat-paginator #paginator [pageSizeOptions]="[10, 20, 100]" showFirstLastButtons></mat-paginator>
+    </app-detail-card>
+
+    <div class="actions" [style.padding]="0" [style.margin-top]="'10px'">
+      <button *ngIf="project.active" mat-raised-button color="primary" (click)="addCheck()">Add</button>
+    </div>
+  </div>
+
+</div>

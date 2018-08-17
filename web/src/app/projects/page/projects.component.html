@@ -1,0 +1,46 @@
+<mat-form-field id="filter">
+    <input matInput autocomplete="none" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<div id="table"  class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="checks">
+            <th mat-header-cell *matHeaderCellDef> Nº Checks </th>
+            <td mat-cell *matCellDef="let element"> {{element.checks}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> <div class="status" [class.active]="element.active"></div></td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef> Created </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdAt | date}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="controls">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> 
+                <mat-icon *ngIf="element.active" class="icon startIcon" matTooltip="Put on hold" (click)="pauseProject(element, $event)">pause</mat-icon>
+                <mat-icon *ngIf="!element.active" class="icon pauseIcon" matTooltip="Resume" (click)="resumeProject(element, $event)">play_arrow</mat-icon>
+                <mat-icon class="icon deleteIcon" matTooltip="Delete project" (click)="deleteProject(element, $event)">delete_forever</mat-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay" (click)="onProjectClick(myRowData)"></tr>
+    </table>
+
+    <mat-paginator #paginator [pageSizeOptions]="[10, 20, 100]" showFirstLastButtons></mat-paginator>
+</div>
+
+<div id="buttons">
+    <a color="primary" mat-raised-button (click)="createProject()">New project</a>
+</div>
