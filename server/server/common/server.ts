@@ -7,6 +7,7 @@ import * as os from 'os';
 import * as cookieParser from 'cookie-parser';
 import * as cors from 'cors';
 import l from './logger';
+import scheduler from './scheduler';
 
 const app = express();
 
@@ -18,6 +19,7 @@ export default class ExpressServer {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(cookieParser(process.env.SESSION_SECRET));
     app.use(cors());
+    scheduler.init();
   }
 
   router(routes: (app: Application) => void): ExpressServer {

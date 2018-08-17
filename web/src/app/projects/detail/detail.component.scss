@@ -2,7 +2,14 @@
 
 .wrapper {
     width: 80%;
-    margin: 10px auto;
+    margin: 10px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .row {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 
     .actions {
         padding: 15px;
@@ -42,13 +49,11 @@
         }
     }
 
-    #checksWrapper {
-       .content {
-           flex-direction: column;
-           width: 100%;
-       }
+    &#checksWrapper {
+        margin: 0 auto 20px auto;
     }
 }
+
 
 :host /deep/ {
 

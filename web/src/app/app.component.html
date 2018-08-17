@@ -18,11 +18,14 @@
                 </span>
             </div>
         </mat-sidenav>
-        <mat-sidenav-content>
+        <mat-sidenav-content class="main-content">
             <mat-toolbar class="topBar mat-elevation-z2">
                 <span>{{page | titlecase}}</span>
             </mat-toolbar>
-            <router-outlet></router-outlet>
+            
+            <div class="router-outlet">
+                <router-outlet></router-outlet>
+            </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </main>

@@ -7,8 +7,8 @@ export interface Check {
     endpoint: string;
     active: boolean;
     checkType: Types;
-    customData?: any;
-    createdAt?: moment.Moment;
+    lastRun?: string;
+    createdAt?: string;
 }
 
 export enum Types {
@@ -16,11 +16,25 @@ export enum Types {
     EVERY_HOUR,
     EVERY_HALF_HOUR,
     EVERY_TEN_MINUTES,
-    CUSTOM,
+    EVERY_FIVE_MINUTES,
 }
 
-export enum Status  {
+export enum Status {
     ACTIVE = 'active',
     INACTIVE = 'inactive',
 }
 
+export const getInterval = (type: Types) => {
+    switch (type) {
+        case Types.DAILY:
+            return 24 * 60;
+        case Types.EVERY_HOUR:
+            return 60;
+        case Types.EVERY_HALF_HOUR:
+            return 30;
+        case Types.EVERY_TEN_MINUTES:
+            return 10;
+        case Types.EVERY_FIVE_MINUTES:
+            return 5;
+    }
+};
