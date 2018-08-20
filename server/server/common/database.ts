@@ -5,7 +5,7 @@ class Database {
 
   constructor() {
     const options = {
-      filename: `${process.env.database}/data.db`,
+      filename: `${process.env.DATABASE}/data.db`,
       timestampData: true,
       autoload: true,
     };

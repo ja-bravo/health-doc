@@ -1,6 +1,6 @@
 import L from '../../common/logger'
 import database from '../../common/database';
-import { Check } from '../../../../web/src/app/shared/models/check';
+import { Check } from '../../../../shared/check';
 
 export const type = 'check';
 export class ChecksService {

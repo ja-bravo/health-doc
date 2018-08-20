@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Stats } from '../../../../../shared/stats';
+import { StatsService } from '../../shared/services/stats.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  stats: Stats;
+  constructor(private statsService: StatsService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.stats = await this.statsService.getStats();
   }
 
 }

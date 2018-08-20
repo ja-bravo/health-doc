@@ -1,5 +1,5 @@
 import * as nodemailer from 'nodemailer';
-import { Result } from '../../../web/src/app/shared/models/result';
+import { Result } from '../../../shared/result';
 import L from './logger';
 import * as moment from 'moment';
 

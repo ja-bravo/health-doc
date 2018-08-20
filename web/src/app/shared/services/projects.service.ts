@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Project, Status } from '../models/project';
+import { Project, Status } from '../../../../../shared/project';
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,16 @@ export class ProjectsService {
   constructor(private httpClient: HttpClient) { }
 
   public getProjects(): Promise<Project[]> {
-    return this.httpClient.get<Project[]>('http://localhost:3000/api/v1/projects').toPromise();
+    return this.httpClient.get<Project[]>(`${environment.api}/projects`).toPromise();
   }
 
   public getProjectsObservable(): Observable<Project[]> {
-    return this.httpClient.get<Project[]>('http://localhost:3000/api/v1/projects');
+    return this.httpClient.get<Project[]>(`${environment.api}/projects`);
   }
 
   public createProject(project): Promise<Project> {
     console.dir(project);
-    return this.httpClient.post<Project>('http://localhost:3000/api/v1/projects', project).toPromise();
+    return this.httpClient.post<Project>(`${environment.api}/projects`, project).toPromise();
   }
 
   public setProject(project: Project) {
@@ -31,11 +32,11 @@ export class ProjectsService {
 
   public changeStatus(project: Project, status: Status) {
     project.active = status === Status.ACTIVE;
-    return this.httpClient.patch('http://localhost:3000/api/v1/projects', project).toPromise();
+    return this.httpClient.patch(`${environment.api}/projects`, project).toPromise();
   }
 
   public deleteProject(project: Project) {
     const params = new HttpParams({fromObject: {id: project._id}});
-    return this.httpClient.delete<number>('http://localhost:3000/api/v1/projects', {params}).toPromise();
+    return this.httpClient.delete<number>(`${environment.api}/projects`, {params}).toPromise();
   }
 }

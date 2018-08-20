@@ -1,4 +1,3 @@
-import * as moment from 'moment';
 
 export interface Check {
     _id?: string;

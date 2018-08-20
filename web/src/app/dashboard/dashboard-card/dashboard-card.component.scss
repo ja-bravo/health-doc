@@ -8,9 +8,12 @@
     background: white;
     overflow: hidden;
     transition: all 0.4s ease 0s;
-    cursor: pointer;
     
-    &.raised {
+    &:not(.passive) {
+        cursor: pointer;
+    }
+    
+    &.raised:not(.passive) {
         transform: translateY(-4px);
     }
     

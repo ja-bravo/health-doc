@@ -1,17 +1,17 @@
 <mat-grid-list cols="4" class="wrapper" rowHeight="200">
     <mat-grid-tile>
-        <app-dashboard-card [title]="4" [color]="'#416788'" [subtitle]="'Projects'" [icon]="'fa-server'" [route]="'/projects'"></app-dashboard-card>
+        <app-dashboard-card [title]="stats.projects" [color]="'#416788'" [subtitle]="'Projects'" [icon]="'fa-server'" [route]="'/projects'"></app-dashboard-card>
     </mat-grid-tile>
 
     <mat-grid-tile>
-        <app-dashboard-card [title]="12" [color]="'#3776ad'" [subtitle]="'Checks'" [icon]="'fa-heartbeat'" [route]="'/checks'"></app-dashboard-card>
+        <app-dashboard-card [title]="stats.checks" [color]="'#3776ad'" [subtitle]="'Checks'" [icon]="'fa-heartbeat'" [route]="'/checks'"></app-dashboard-card>
     </mat-grid-tile>
 
     <mat-grid-tile>
-        <app-dashboard-card [title]="'80%'" [subtitle]="'Rate of success'" [icon]="'fa-check'" [route]="'/statistics'"></app-dashboard-card>
+        <app-dashboard-card [title]="(stats.success || 0) + '%'" [subtitle]="'Rate of success'" [icon]="'fa-check'" [route]="'/statistics'" [passive]="true"></app-dashboard-card>
     </mat-grid-tile>
 
     <mat-grid-tile>
-        <app-dashboard-card [title]="'20%'" [color]="'#EF3E36'" [subtitle]="'Rate of failure'" [icon]="'fa-exclamation'" [route]="'/statistics'"></app-dashboard-card>
+        <app-dashboard-card [title]="(stats.failure || 0) + '%'" [color]="'#EF3E36'" [subtitle]="'Rate of failure'" [icon]="'fa-exclamation'" [route]="'/statistics'" [passive]="true"></app-dashboard-card>
     </mat-grid-tile>
 </mat-grid-list>

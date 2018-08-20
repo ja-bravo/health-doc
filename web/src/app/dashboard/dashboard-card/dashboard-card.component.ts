@@ -13,7 +13,8 @@ export class DashboardCardComponent implements OnInit {
   @Input() icon;
   @Input() color;
   @Input() route;
-
+  @Input() passive;
+  
   public raised = false;
 
   constructor(private router: Router) { }

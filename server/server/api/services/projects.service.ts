@@ -1,6 +1,6 @@
 import L from '../../common/logger'
 import database from '../../common/database';
-import { Project } from '../../../../web/src/app/shared/models/project';
+import { Project } from '../../../../shared/project';
 
 const type = 'project';
 export class ProjectsService {

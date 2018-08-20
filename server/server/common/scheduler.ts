@@ -1,11 +1,11 @@
-import { Check, getInterval } from './../../../web/src/app/shared/models/check';
+import { Check, getInterval } from '../../../shared/check';
 import axios from 'axios';
 import * as cron from 'node-cron';
 import database from './database';
 import * as moment from 'moment';
 import L from './logger';
-import { Project } from '../../../web/src/app/shared/models/project';
-import { Result } from '../../../web/src/app/shared/models/result';
+import { Project } from '../../../shared/project';
+import { Result } from '../../../shared/result';
 import Email from './email';
 
 class Scheduler {
@@ -43,7 +43,7 @@ class Scheduler {
                     };
 
                     database.insert(result, 'result');
-                    L.info('Check success', check);
+                    L.info('Check success', check._id);
                 }
                 catch (e) {
                     L.error('Check failure', check);

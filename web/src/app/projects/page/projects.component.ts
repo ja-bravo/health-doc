@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Inject, OnDestroy } from '@angular/core';
 import { ProjectsService } from '../../shared/services/projects.service';
-import { Project, Status } from '../../shared/models/project';
+import { Project, Status } from '../../../../../shared/project';
 import { MatPaginator, MatTableDataSource, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
