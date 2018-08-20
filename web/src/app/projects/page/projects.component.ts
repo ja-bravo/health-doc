@@ -55,12 +55,12 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   public createProject() {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
-      data: ''
+      data: {}
     });
 
     dialogRef.afterClosed().subscribe(async result => {
       if (result) {
-        const project = await this.projectsService.createProject({ name: result });
+        const project = await this.projectsService.createProject(result);
         this.projectsService.setProject(project);
         this.router.navigateByUrl('/projects/details');
       }

@@ -8,7 +8,7 @@ import * as moment from 'moment';
   providedIn: 'root'
 })
 export class ProjectsService {
-  public project: Project = { name: 'Test project', checks: 0, _id: 'ZP6MITdO6ban8o5J',
+  public project: Project = { name: 'Test project', checks: 0, _id: 'yQ2qSJ65ZXZuFCl9', email: 'jose@boonagency.ie',
   active: true, createdAt: moment()};
   constructor(private httpClient: HttpClient) { }
 
@@ -21,6 +21,7 @@ export class ProjectsService {
   }
 
   public createProject(project): Promise<Project> {
+    console.dir(project);
     return this.httpClient.post<Project>('http://localhost:3000/api/v1/projects', project).toPromise();
   }
 

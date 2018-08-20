@@ -1,2 +1,3 @@
-{"name":"Info","endpoint":"https://pocketfriendlytowns.com/westend/v4/settings/info","checkType":4,"projectId":"yQ2qSJ65ZXZuFCl9","type":"check","_id":"SUYZczpK8VaoDKJ3","createdAt":{"$$date":1534533680263},"updatedAt":{"$$date":1534535280330},"active":true,"lastRun":"2018-08-17T20:48:00+01:00"}
-{"name":"Westend","type":"project","_id":"yQ2qSJ65ZXZuFCl9","createdAt":{"$$date":1534533662779},"updatedAt":{"$$date":1534533666516},"active":true}
+{"name":"Info","endpoint":"https://pocketfriendlytowns.com/westend/v4/settings/info","checkType":4,"projectId":"yQ2qSJ65ZXZuFCl9","type":"check","_id":"SUYZczpK8VaoDKJ3","createdAt":{"$$date":1534533680263},"updatedAt":{"$$date":1534751100656},"active":true,"lastRun":"2018-08-20T08:45:00+01:00"}
+{"name":"Westend","type":"project","_id":"yQ2qSJ65ZXZuFCl9","email":"jose@boonagency.ie","createdAt":{"$$date":1534533662779},"updatedAt":{"$$date":1534533666516},"active":true}
+{"name":"adadas","email":"2312321","type":"project","_id":"yV3b8xxg8uPdh3w0","createdAt":{"$$date":1534751308727},"updatedAt":{"$$date":1534751308727}}

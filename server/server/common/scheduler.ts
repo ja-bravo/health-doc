@@ -20,7 +20,7 @@ class Scheduler {
     private run() {
         L.info('Scheduler Running');
         database.find({type: type}).then((checks: Check[]) => {
-            L.info('Number of checks', checks.length);
+            L.info('Number of checks', {length: checks.length});
 
             // TODO: Send email every X time, check if project is active for that.
             for(let check of checks) {
