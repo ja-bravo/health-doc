@@ -1,2 +1,5 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
+import * as dotenvExpand from 'dotenv-expand';
+
+const env = dotenv.config();
+dotenvExpand(env);

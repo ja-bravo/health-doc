@@ -14,3 +14,11 @@ export enum Status  {
     INACTIVE = 'inactive',
 }
 
+
+// {
+//  "service": "gmail",
+//  "auth": {
+//         "user": "healthdocjs@gmail.com",
+//         "pass": "9YJ5u1K6v"
+//     }
+// }

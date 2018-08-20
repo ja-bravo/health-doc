@@ -6,10 +6,12 @@ import * as moment from 'moment';
 import L from './logger';
 import { Project } from '../../../web/src/app/shared/models/project';
 import { Result } from '../../../web/src/app/shared/models/result';
+import Email from './email';
 
 class Scheduler {
 
     private shouldRun(check: Check) {
+        return true;
         if (!check.lastRun) return true;
 
         const interval = getInterval(check.checkType);
@@ -27,7 +29,8 @@ class Scheduler {
 
             if (project.active && check.active && this.shouldRun(check)) {
                 try {
-                    await axios.get(check.endpoint);
+                    L.info('Testing...');
+                    await axios.get(check.endpoint, { timeout: 3000 });
                     check.lastRun = moment().format();
                     database.update(check, 'check');
                     const result: Result = {
@@ -49,6 +52,7 @@ class Scheduler {
                         endpoint: check.endpoint,
                     };
                     database.insert(result, 'result');
+                    Email.sendFailure(result);
                 }
             }
         }
