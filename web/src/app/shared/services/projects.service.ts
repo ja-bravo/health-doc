@@ -9,7 +9,7 @@ import * as moment from 'moment';
 })
 export class ProjectsService {
   public project: Project = { name: 'Test project', checks: 0, _id: 'yQ2qSJ65ZXZuFCl9', email: 'jose@boonagency.ie',
-  active: true, createdAt: moment()};
+  active: true, createdAt: moment().format()};
   constructor(private httpClient: HttpClient) { }
 
   public getProjects(): Promise<Project[]> {

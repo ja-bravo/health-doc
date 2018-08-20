@@ -6,7 +6,7 @@ export interface Project {
     email: string;
     checks: number;
     active: boolean;
-    createdAt: moment.Moment;
+    createdAt?: string;
 }
 
 export enum Status  {
