@@ -11,7 +11,6 @@ import Email from './email';
 class Scheduler {
 
     private shouldRun(check: Check) {
-        return true;
         if (!check.lastRun) return true;
 
         const interval = getInterval(check.checkType);
@@ -30,11 +29,14 @@ class Scheduler {
             if (project.active && check.active && this.shouldRun(check)) {
                 try {
                     L.info('Testing...');
-                    await axios.get(check.endpoint, { timeout: 3000 });
+                    await axios.get(check.endpoint, { timeout: 10000});
                     check.lastRun = moment().format();
                     database.update(check, 'check');
                     const result: Result = {
                         checkId: check._id,
+                        checkName: check.name,
+                        projectName: project.name,
+                        time: moment().format(),
                         projectId: project._id,
                         success: true,
                         endpoint: check.endpoint,
@@ -47,20 +49,24 @@ class Scheduler {
                     L.error('Check failure', check);
                     const result: Result = {
                         checkId: check._id,
+                        checkName: check.name,
+                        projectName: project.name,
                         projectId: project._id,
                         success: false,
+                        time: moment().format(),
                         endpoint: check.endpoint,
+                        extra: e.message,
                     };
                     database.insert(result, 'result');
-                    Email.sendFailure(result);
+                    Email.sendFailure(result, project.email);
                 }
             }
         }
     }
 
     public init() {
-        this.run();
-        // cron.schedule('*/5 * * * *', this.run.bind(this), true);
+        // this.run();
+        cron.schedule('*/5 * * * *', this.run.bind(this), true);
     }
 }
 
