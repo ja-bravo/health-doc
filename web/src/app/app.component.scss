@@ -1,8 +1,7 @@
 @import './theme';
 
 .main-content {
-    overflow-y: hidden;
-
+    overflow: hidden;
     .router-outlet {
         overflow-y: scroll;
         height: calc(100% - 66px);
@@ -72,6 +71,6 @@ main, .menuContainer {
 .topBar {
     background: $darkGrey;
     color: white;
-    border-left: 2px solid $accent;
+    border-left: 2px solid $accent !important;
     height: 66px;
 }

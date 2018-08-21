@@ -12,12 +12,23 @@ class Database {
     this.store = new Datastore(options);
   }
 
-  find<T>(opts): Promise<T> {
+  find<T>(opts, sort?, limit?): Promise<T> {
     return new Promise((fulfill, reject) => {
-      this.store.find(opts, (err, docs) => {
-        if (err) return reject(err);
-        return fulfill(docs);
-      });
+      if (!sort) {
+        this.store.find(opts, (err, docs) => {
+          if (err) return reject(err);
+          return fulfill(docs);
+        });
+      }
+      else {
+        let cursor = this.store.find(opts).sort(sort);
+        cursor = limit ? cursor.limit(limit) : cursor;
+        
+        cursor.exec((err, docs) => {
+          if (err) return reject(err);
+          return fulfill((docs as any));
+        });
+      }
     });
   }
 
@@ -32,7 +43,7 @@ class Database {
 
   delete(id, type): Promise<number> {
     return new Promise((fulfill, reject) => {
-      this.store.remove({_id: id, type}, (e,n) => {
+      this.store.remove({ _id: id, type }, (e, n) => {
         if (e) return reject(e);
         return fulfill(n);
       })
@@ -41,9 +52,18 @@ class Database {
 
   update(data, type): Promise<any> {
     return new Promise((fulfill, reject) => {
-      this.store.update({_id: data._id, type}, {$set: data}, {}, (e, n, upsert) => {
+      this.store.update({ _id: data._id, type }, { $set: data }, {}, (e, n, upsert) => {
         if (e) return reject(e);
         return fulfill(n);
+      });
+    });
+  }
+
+  count(opts): Promise<any> {
+    return new Promise((fulfill, reject) => {
+      this.store.count(opts, (err, docs) => {
+        if (err) return reject(err);
+        return fulfill(docs);
       });
     });
   }

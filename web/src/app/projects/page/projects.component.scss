@@ -62,6 +62,10 @@
     }
 }
 
-#buttons {
+#buttons, #table, #filter {
     width: 60%;
+
+    @include until($fullhd) {
+        width: 90%;
+    }
 }

@@ -22,11 +22,10 @@ class Scheduler {
         const checks = await database.find<Check[]>({ type: 'check', active: true });
         L.info('Scheduler Running', checks.length);
 
-        // TODO: Send email every X time, check if project is active for that.
         for (let check of checks) {
             const project: Project = (await database.find<Project[]>({ _id: check.projectId }))[0];
 
-            if (project.active && check.active && this.shouldRun(check)) {
+            if (project && project.active && check.active && this.shouldRun(check)) {
                 try {
                     L.info('Testing...');
                     await axios.get(check.endpoint, { timeout: 10000});
@@ -58,7 +57,7 @@ class Scheduler {
                         extra: e.message,
                     };
                     database.insert(result, 'result');
-                    Email.sendFailure(result, project.email);
+                    //Email.sendFailure(result, project.email);
                 }
             }
         }

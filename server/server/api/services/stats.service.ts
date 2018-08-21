@@ -11,16 +11,19 @@ export class StatsService {
     
     const projects = (await database.find<Project[]>({type: 'project'})).length;
     const checks = (await database.find<Check[]>({type: 'check'})).length;
-    const results = (await database.find<Result[]>({type: 'result'}));
 
-    const success = results.filter(r => r.success);
-    const successRatio = Number.parseFloat((success.length / results.length * 100).toFixed(2));
+    const results = (await database.find<Result[]>({type: 'result'}, { time: -1 }, 100));
+    const resultsCount = (await database.count({type: 'result'}));
+    const successCount = (await database.count({type: 'result', success: true}));
+
+    const successRatio = Number.parseFloat((successCount / resultsCount * 100).toFixed(2));
     const failureRatio = Number.parseFloat((100 - successRatio).toFixed(2));
 
     const stats: Stats = {
      checks,
      projects,
-     results: results.length,
+     lastResults: results,
+     results: resultsCount,
      success: successRatio,
      failure: failureRatio, 
     }
