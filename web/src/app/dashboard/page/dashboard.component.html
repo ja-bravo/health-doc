@@ -1,7 +1,29 @@
 <div class="wrapper">
   <div class="row">
-    <app-dashboard-card [title]="stats?.projects" [color]="'#416788'" [subtitle]="'Projects'" [icon]="'fa-server'" [route]="'/projects'"></app-dashboard-card>
-    <app-dashboard-card [title]="stats?.checks" [color]="'#3776ad'" [subtitle]="'Checks'" [icon]="'fa-heartbeat'" [route]="'/checks'"></app-dashboard-card>
+    <app-detail-card [title]="'Statistics'" [icon]="'fa-chart-bar'" [style.width]="'100%'">
+      <table class="details">
+        <tr>
+          <td>Projects</td>
+          <td>{{stats?.projects}}</td>
+        </tr>
+        <tr>
+          <td>Checks</td>
+          <td>{{stats?.checks}}</td>
+        </tr>
+        <tr>
+          <td>Checks done</td>
+          <td>{{stats?.results}}</td>
+        </tr>
+        <tr>
+          <td>Success rate</td>
+          <td>{{stats?.success}}%</td>
+        </tr>
+        <tr>
+          <td>Failure rate</td>
+          <td>{{stats?.failure}}%</td>
+        </tr>
+      </table>
+    </app-detail-card>
   </div>
 
   <div class="row marginless">

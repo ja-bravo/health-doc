@@ -6,15 +6,32 @@
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     justify-content: space-between;
 
     &.marginless {
         margin-bottom: 0;
     }
     
-    app-dashboard-card {
-        width: 49.5%;
+    .details {
+        font-size: 13px !important;
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: collapse;
+
+        tr {
+            td {
+                padding: 8px;
+                line-height: 1.42857143;
+                vertical-align: top;
+                border-top: 1px solid #ddd;
+
+                &:first-of-type {
+                    font-weight: bold;
+                    width: 150px;
+                }
+            }
+        }
     }
 
     &.table {
