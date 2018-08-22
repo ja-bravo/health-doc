@@ -1,6 +1,6 @@
 <main>
     <mat-sidenav-container class="menuContainer">
-        <mat-sidenav class="menu" mode="side" opened>
+        <mat-sidenav class="menu" mode="side" [opened]="!isLogin">
             <div class="header mat-elevation-z2">
                 <i class="fas fa-stethoscope fa-icon"></i>
                 <span class="header-title">Health Doc</span>
@@ -19,7 +19,7 @@
             </div>
         </mat-sidenav>
         <mat-sidenav-content class="main-content">
-            <mat-toolbar class="topBar mat-elevation-z2">
+            <mat-toolbar class="topBar mat-elevation-z2" *ngIf="!isLogin">
                 <span>{{page | titlecase}}</span>
             </mat-toolbar>
             

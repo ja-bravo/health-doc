@@ -1,2 +1,4 @@
 
 server/transport\.json
+server/~/health-doc/data.db
+*.db
