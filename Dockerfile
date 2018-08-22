@@ -38,7 +38,5 @@ ENV DATABASE /var/healthdoc/
 RUN apk add --update nodejs nodejs-npm
 
 EXPOSE 80
-EXPOSE 3000
-
 
 CMD ["/bin/sh", "/usr/local/start.sh"]
