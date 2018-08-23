@@ -6,12 +6,12 @@ const type = 'project';
 export class ProjectsService {
   all(): Promise<Project[]> {
     L.info('fetch all projects');
-    return database.find({type});
+    return database.find({ type });
   }
 
   byId(id: number): Promise<Project> {
     L.info(`Fetch project with id ${id}`);
-    return database.find({_id: id, type});
+    return database.find({ _id: id, type });
   }
 
   create(project: Project): Promise<Project> {

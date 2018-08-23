@@ -10,5 +10,9 @@ export class Controller {
   register(req: Request, res: Response): void {
     UserService.register(req.body.user, req.body.password).then(r => res.json(r));
   }
+
+  isFirstTime(req: Request, res: Response): void {
+    UserService.isFirstTime().then(r => res.json(r));
+  }
 }
 export default new Controller();

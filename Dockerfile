@@ -1,5 +1,8 @@
 FROM node:alpine as builder
 RUN apk update && apk add --no-cache make git
+RUN apk --no-cache add --virtual builds-deps build-base python
+RUN npm config set python /usr/bin/python
+
 
 # Create app directory
 WORKDIR /health-doc
@@ -19,6 +22,8 @@ WORKDIR /health-doc/server
 COPY server/package.json server/package-lock.json /health-doc/server/
 RUN cd /health-doc/server && npm set progress=false && npm install
 COPY ./server /health-doc/server
+RUN npm rebuild bcrypt --build-from-source
+RUN apk del builds-deps
 RUN cd /health-doc/server && npm run compile
 
 FROM nginx:alpine

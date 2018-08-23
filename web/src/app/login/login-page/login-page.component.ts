@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../shared/services/user.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +13,7 @@ export class LoginPageComponent implements OnInit {
   public user;
   public password;
 
-  constructor(private service: UserService, private router: Router) { }
+  constructor(private service: UserService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -24,7 +25,11 @@ export class LoginPageComponent implements OnInit {
       if (result.token) {
         localStorage.setItem('jwt', result.token);
         this.router.navigateByUrl('/');
+      } else {
+        this.snackBar.open('Incorrent user or password.');
       }
+    } else {
+      this.snackBar.open('Missing user or password.');
     }
   }
 }

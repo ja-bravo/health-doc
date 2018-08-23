@@ -6,17 +6,17 @@ export const type = 'check';
 export class ChecksService {
   all(): Promise<Check[]> {
     L.info('fetch all Checks');
-    return database.find({type});
+    return database.find({ type });
   }
 
   byProjectId(id: string): Promise<Check> {
     L.info(`Fetch check from project with id ${id}`);
-    return database.find({type, projectId: id})
+    return database.find({ type, projectId: id })
   }
 
   byId(id: string): Promise<Check> {
     L.info(`Fetch check with id ${id}`);
-    return database.find({_id: id, type});
+    return database.find({ _id: id, type });
   }
 
   create(check: Check): Promise<Check> {

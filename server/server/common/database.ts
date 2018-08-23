@@ -23,7 +23,7 @@ class Database {
       else {
         let cursor = this.store.find(opts).sort(sort);
         cursor = limit ? cursor.limit(limit) : cursor;
-        
+
         cursor.exec((err, docs) => {
           if (err) return reject(err);
           return fulfill((docs as any));
@@ -59,7 +59,7 @@ class Database {
     });
   }
 
-  count(opts): Promise<any> {
+  count(opts): Promise<number> {
     return new Promise((fulfill, reject) => {
       this.store.count(opts, (err, docs) => {
         if (err) return reject(err);

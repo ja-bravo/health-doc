@@ -1,10 +1,11 @@
 <div class="wrapper">
+  <span class="mat-title">Health Doc</span>
   <mat-card>
     <mat-form-field [style.width]="'100%'">
-      <input placeholder="User" matInput [(ngModel)]="user"/>
+      <input placeholder="User" matInput [(ngModel)]="user" (keyup.enter)="register()"/>
     </mat-form-field>
     <mat-form-field [style.width]="'100%'">
-      <input placeholder="Password" type="password" matInput [(ngModel)]="password"/>
+      <input placeholder="Password" type="password" matInput [(ngModel)]="password" (keyup.enter)="register()"/>
     </mat-form-field>
 
     <button mat-raised-button color="primary" (click)="register()">Register</button>

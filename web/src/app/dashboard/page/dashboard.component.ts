@@ -6,6 +6,7 @@ import { StatsService } from '../../shared/services/stats.service';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { OnDestroy } from '@angular/core';
 import * as moment from 'moment';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public dataSource = new MatTableDataSource<Result>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private statsService: StatsService) { }
+  constructor(private statsService: StatsService, private userService: UserService) { }
 
   async ngOnInit() {
     this.subscription = this.statsService.getStatsObv().subscribe(stats => {

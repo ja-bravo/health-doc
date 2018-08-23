@@ -6,7 +6,7 @@ import { DetailCardComponent } from './detail-card/detail-card.component';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
   ],
   exports: [
     DetailCardComponent

@@ -1,6 +1,7 @@
 import { UserService } from './../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-register-page',
@@ -12,7 +13,7 @@ export class RegisterPageComponent implements OnInit {
   public user;
   public password;
 
-  constructor(private service: UserService, private router: Router) { }
+  constructor(private service: UserService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -23,7 +24,11 @@ export class RegisterPageComponent implements OnInit {
       if (token) {
         localStorage.setItem('jwt', token);
         this.router.navigateByUrl('/');
+      } else {
+        this.snackBar.open('Error');
       }
+    } else {
+      this.snackBar.open('Missing user or password.');
     }
   }
 }
