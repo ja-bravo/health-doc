@@ -1,1 +1,1 @@
-docker build . -t health-doc
+docker build . -t jabravo/health-doc

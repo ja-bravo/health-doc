@@ -4,6 +4,7 @@ import { Stats } from '../../../../shared/stats';
 import { Project } from '.../../../../shared/project';
 import { Check } from '../../../../shared/check';
 import { Result } from '../../../../shared/result';
+import axios from 'axios';
 
 export class StatsService {
   async all(): Promise<Stats> {
